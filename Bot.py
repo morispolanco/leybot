@@ -12,13 +12,13 @@ session_prompt = "Lo que sigue es una conversación con un asistente de AI. El a
 def mises(question, chat_log=None):
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="text-davinci-003",
         prompt=prompt_text,
-        temperature=0.9,
+        temperature=0.1,
         max_tokens=250,
         top_p=1,
         frequency_penalty=0,
-        presence_penalty=0.6,
+        presence_penalty=0,
         stop=["\n"],
     )
     story = response['choices'][0]['text']
